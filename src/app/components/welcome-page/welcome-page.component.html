@@ -98,9 +98,19 @@
                         </a>
                      </li>
                      <li class="btn-group dropdown">
-                        <a  href="#" class="pm_item" data-toggle="dropdown" title="login">
+                        <a *ngIf="!loginService.isUserLoggedIn()" [routerLink] = "['/login']" class="pm_item" data-toggle="dropdown" title="login">
                            <i class="icon-login"></i>
                            <span class="hidden-sm hidden-xs">Login</span>
+                        </a>
+
+                        <a *ngIf="loginService.isUserLoggedIn()" [routerLink] = "['/logout']" class="pm_item" data-toggle="dropdown" title="login">
+                           <i class="icon-logout"></i>
+                           <span class="hidden-sm hidden-xs">Logout</span>
+                        </a>
+
+                        <a  [routerLink] = "['/register']" class="pm_item" data-toggle="dropdown" title="login">
+                           <i class="icon-login"></i>
+                           <span class="hidden-sm hidden-xs">Register</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" role="menu">
                            <span class="dropdown-triangle-up"></span>

@@ -19,6 +19,16 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
 import { LocalStorageServie, StorageService } from "./services/storage.service";
 import { CategoryComponent } from "./components/category/category.component";
 import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
+import { EmployeeComponent } from './components/employee/employee.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientService } from "./services/httpclient.service";
+import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuthenticationService } from "./services/authentication.service";
+import { AuthGaurdService } from "./services/auth-guard.service";
+import { BasicAuthHtppInterceptorService } from "./services/basicauthhttpinterceptor.service";
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -32,15 +42,25 @@ import { ProductDetailComponent } from "./components/product-detail/product-deta
     CheckoutComponent,
     OrderConfirmationComponent,
     CategoryComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    EmployeeComponent,
+    AddEmployeeComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
+    BasicAuthHtppInterceptorService,
+    HttpClientService,
+    AuthenticationService,
+    AuthGaurdService,
     ProductsDataService,
     DeliveryOptionsDataService,
     PopulatedCartRouteGuard,
@@ -50,6 +70,9 @@ import { ProductDetailComponent } from "./components/product-detail/product-deta
       deps: [StorageService, ProductsDataService, DeliveryOptionsDataService],
       provide: ShoppingCartService,
       useClass: ShoppingCartService
+    },
+    {  
+      provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true 
     }
   ]
 })
