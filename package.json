@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ng build -prod -aot && gulp",
-    "build-prod": "ng build -prod",
+	  "build-prod": "ng build -prod",
     "start": "ng serve -prod",
     "start:https": "ng serve --ssl true --ssl-key ./dev_cert.key --ssl-cert ./dev_cert.crt",
     "test": "ng test --watch false",
