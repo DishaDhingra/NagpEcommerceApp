@@ -20,7 +20,7 @@ export class Product {
   public isBestSeller: boolean;
 
   public updateFrom(src: Product): void {
-    this.productId = src.productId;
+    this.productId = src.code;
     this.code = src.code;
     this.name = src.name;
     this.description = src.description;

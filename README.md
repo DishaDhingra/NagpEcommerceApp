@@ -48,7 +48,7 @@ HTTP development server
 npm run start
 ```
 
-Then navigate to http://localhost:4200/
+Then navigate to http://localhost:5000/
 
 
 
@@ -57,4 +57,4 @@ HTTPS development server (note: the development certificate will have to be adde
 npm run start:https
 ```
 
-Then navigate to https://localhost:4200/
+Then navigate to https://localhost:5000/
