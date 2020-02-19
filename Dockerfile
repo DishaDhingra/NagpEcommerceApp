@@ -14,8 +14,4 @@ FROM nginx:1.15
 #Copy ci-dashboard-dist
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 #Copy default nginx configuration
-<<<<<<< HEAD
 COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
-=======
-COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
->>>>>>> 45b072102d166b3ba1648d85936e2ba2354dc250
