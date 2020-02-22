@@ -36,7 +36,7 @@ export class ProductsDataService extends CachcingServiceBase {
     return this.cache<Product[]>(() => this.products,
                                  (val: Observable<Product[]>) => this.products = val,
                                  () => this.http
-                                           .get("https://disha-dhingra-product-service1.35.237.16.11.nip.io/products/productlist")
+                                           .get("https://kushalverma27-product-service1.35.202.138.69.nip.io/products/productlist")
                                            .map((response) => response.json()
                                                                       .map((item) => {
                                                                         let model = new Product();

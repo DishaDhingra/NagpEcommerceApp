@@ -8,7 +8,7 @@ import { AuthenticationService } from "app/services/authentication.service";
 })
 export class WelcomePageComponent implements OnInit {
 
-  constructor(private loginService: AuthenticationService) {
+  constructor(public loginService: AuthenticationService) {
     // Empty.
   }
 
